@@ -11,9 +11,9 @@ void loop() {
 ValorLido = analogRead(LDR);
 val_botao = digitalRead(BOTAO);
 
-//Serial.print("Valor lido pelo LDR = ");
-//Serial.println(ValorLido);
-Serial.print("/n Valor Botao = ");
-Serial.println(val_botao);
+Serial.print("Valor lido pelo LDR = ");
+Serial.println(ValorLido);
+//Serial.print("/n Valor Botao = ");
+//Serial.println(val_botao);
 delay(100);
 }
