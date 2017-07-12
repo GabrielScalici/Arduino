@@ -9,17 +9,23 @@ Servo servo2;
 IRrecv ir_recebe(11);
 decode_results codigo_recebido;
 
-//Variaveis
+//Variaveis movimentos
 int pos_a = 0;
 int pos_d = 0;
 int pos_w = 0;
 int pos_s = 0;
 
+//Buzzer
+float seno = 0;
+int frequencia = 0;
+int Buzzer = 9;
 
 void setup(){
   //Pinagem dos servos
   servo.attach(3);
   servo2.attach(4);
+  //Buzzer
+  pinMode(Buzzer,OUTPUT);
   //Receptor
   ir_recebe.enableIRIn();
   Serial.begin(9600);
@@ -88,14 +94,20 @@ void loop() {
       }
       pos_w = pos_s;
       servo2.write(pos_s); 
+      
 
    }
 
-   //ENTER - E17AA857
+   
+   if ((codigo_recebido.value == 0xE17AA857)){// verifica se foi pressionado o numero 1 dos controles    
+      //ENTER - E17AA857
+      digitalWrite(Buzzer, HIGH);
+
+   }
 
           
    //recebendo os dados
    ir_recebe.resume(); // recebe o próximo código   
-   delay(10);    
+   //delay(10);    
   }    
 }   
