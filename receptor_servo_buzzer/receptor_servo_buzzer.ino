@@ -15,6 +15,7 @@ int pos_d = 0;
 int pos_w = 0;
 int pos_s = 0;
 
+//Buzzer nao esta funcionando.
 //Buzzer
 float seno = 0;
 int frequencia = 0;
